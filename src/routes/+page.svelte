@@ -73,8 +73,8 @@
 </script>
 
 <main>
-	<div style="background-color: yellow; padding: 10px; text-align: center; font-weight: bold;">
-		🚀 デプロイテスト用テキスト - 2025-12-26 14:30
+	<div style="background-color: lime; padding: 10px; text-align: center; font-weight: bold;">
+		✅ wrangler.toml修正後のテスト - 2025-12-26 15:00
 	</div>
 
 	<CalendarEvents onMoveToTodo={(text) => todosCtx.addItem(text)} targetSections={$todosCtx.sections} />
