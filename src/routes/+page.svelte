@@ -73,6 +73,10 @@
 </script>
 
 <main>
+	<div style="background-color: yellow; padding: 10px; text-align: center; font-weight: bold;">
+		🚀 デプロイテスト用テキスト - 2025-12-26 14:30
+	</div>
+
 	<CalendarEvents onMoveToTodo={(text) => todosCtx.addItem(text)} targetSections={$todosCtx.sections} />
 
 	<div class="container">
