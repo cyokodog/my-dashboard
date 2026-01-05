@@ -18,7 +18,9 @@ function isEmptyData(data: TodoState | NotesState | any): boolean {
 	// NotesStateの場合
 	if ('taskBelow' in data && 'footer' in data) {
 		return (
-			data.taskBelow.sections.length === 0 && data.footer.sections.length === 0
+			data.taskBelow.sections.length === 0 &&
+			data.footer.sections.length === 0 &&
+			(!data.customNotes || Object.keys(data.customNotes).length === 0)
 		);
 	}
 	return false;
