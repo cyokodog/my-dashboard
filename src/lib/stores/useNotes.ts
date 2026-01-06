@@ -266,5 +266,44 @@ export const useNotes = () => {
         return newState;
       });
     },
+
+    // 個別ノートを更新
+    updateCustomNote: (noteId: string, text: string): { success: boolean; error?: string } => {
+      let result = { success: false, error: '' };
+
+      update((state) => {
+        // タイトルを抽出
+        const title = extractTitle(text);
+        if (!title) {
+          result.error = 'タイトルが見つかりません。先頭に「# タイトル」を追加してください。';
+          return state;
+        }
+
+        // タイトルを除去した本文を取得
+        const content = removeTitle(text);
+
+        // 個別ノートを更新
+        const updatedNote: CustomNote = {
+          id: noteId,
+          title,
+          content,
+          updatedAt: Date.now(),
+        };
+
+        const newState = {
+          ...state,
+          customNotes: {
+            ...state.customNotes,
+            [noteId]: updatedNote,
+          },
+        };
+
+        saveToStorage(newState);
+        result.success = true;
+        return newState;
+      });
+
+      return result;
+    },
   };
 };

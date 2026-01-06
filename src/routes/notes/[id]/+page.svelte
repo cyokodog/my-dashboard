@@ -32,8 +32,14 @@
 	function toggleEdit() {
 		if (isEditing) {
 			// 確定: データを保存
-			// TODO: カスタムノート更新メソッドを追加する必要がある
-			isEditing = false;
+			const result = notesCtx.updateCustomNote(noteId, editText);
+			if (result.success) {
+				isEditing = false;
+				loadNote(); // 更新されたデータを再読み込み
+				errorMessage = '';
+			} else {
+				errorMessage = result.error || '更新に失敗しました';
+			}
 		} else {
 			isEditing = true;
 		}
