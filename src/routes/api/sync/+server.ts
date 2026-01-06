@@ -9,7 +9,8 @@ interface Env {
 const KV_KEYS = {
 	TODOS: 'todo-dashboard-data',
 	MEMOS: 'memo-dashboard-data',
-	NOTES: 'dashboard-notes'
+	NOTES: 'dashboard-notes',
+	CUSTOM_LISTS: 'dashboard-custom-lists'
 } as const;
 
 // GET: KVからデータを取得
